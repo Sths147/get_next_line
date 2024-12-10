@@ -6,26 +6,23 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:33 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/10 19:10:38 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/10 19:16:30 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 /*
-To produce this fuction, here is what I will do:
-1. Go through my fd while and fill my chained list of buffer 
-size while there is no
-	/n
+Get_next_line behaviour :
+	1. Go through my fd while and fill my chained list with nodes
+	 of buffer size while there is no /n or file ends
 2. Once my chained list is filled, I will :
 	* Calculate the length of my list
 	* Allocate a str (Result) that has the length of my list * BUFFER SIZE
 	* paste the results in the str
-3. Clear the list so :
-	* append what is after the \n to the end of my list
-	* clear everything until the last node
-	* last-> node  = head.
+3. Then, cleaning :
+	* stack in my static variable what is after my '\n' in my last node
+	* clean my whole list
 */
 char	*get_next_line(int fd)
 {
