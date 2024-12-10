@@ -6,12 +6,16 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:36 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/10 16:39:38 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/10 18:50:35 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 #include <stdio.h>
+
+/*
+Inspect the content and sends back 1 if a \n is found
+*/
 
 int	ft_inspect_content(t_list *lst)
 {
@@ -30,6 +34,10 @@ int	ft_inspect_content(t_list *lst)
 	}
 	return (0);
 }
+
+/*
+Adds the buffer at the end of the list
+*/
 
 void	ft_lstadd_back(t_list **lst, char *str, int len)
 {
@@ -59,6 +67,9 @@ void	ft_lstadd_back(t_list **lst, char *str, int len)
 	last = ft_lstlast(*lst);
 	last->next = new;
 }
+/*
+Goes to the last node of list
+*/
 
 t_list	*ft_lstlast(t_list *lst)
 {
@@ -68,6 +79,9 @@ t_list	*ft_lstlast(t_list *lst)
 		lst = lst->next;
 	return (lst);
 }
+/*
+Calculate size of list
+*/
 
 int	ft_size_lst(t_list *lst)
 {
@@ -83,6 +97,9 @@ int	ft_size_lst(t_list *lst)
 	}
 	return (i);
 }
+/*
+Frees all list
+*/
 
 void	ft_free_all(t_list **lst)
 {

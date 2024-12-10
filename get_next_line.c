@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:33 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/10 17:50:23 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/10 19:10:38 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ char	*get_next_line(int fd)
 }
 
 /*
- fills the list while there is no \n
+If there is a leftover, I initialise my chained list with leftover
 */
 
 void	ft_assign(char str[BUFFER_SIZE + 1], t_list **lst)
@@ -76,6 +76,10 @@ void	ft_assign(char str[BUFFER_SIZE + 1], t_list **lst)
 	(*lst)->content[i] = '\0';
 	(*lst)->next = NULL;
 }
+
+/*
+Fills my list until there is a \n in BUFFER
+*/
 
 void	ft_fill_my_stash(t_list **stash, int fd, char leftover[BUFFER_SIZE + 1])
 {
@@ -103,6 +107,10 @@ void	ft_fill_my_stash(t_list **stash, int fd, char leftover[BUFFER_SIZE + 1])
 		free(temp);
 	}
 }
+
+/*
+Fills the result with the whole list until there is a \n
+*/
 
 char	*ft_fill_this_str(t_list **stash)
 {
@@ -132,6 +140,10 @@ char	*ft_fill_this_str(t_list **stash)
 	line[i] = '\0';
 	return (line);
 }
+
+/*
+Fills the static with what is left after the \n
+*/
 
 char	*ft_leftover(t_list **lst, char leftover[BUFFER_SIZE + 1])
 {
