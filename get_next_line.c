@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:33 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/10 19:16:30 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/10 19:53:39 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,9 +99,9 @@ void	ft_fill_my_stash(t_list **stash, int fd, char leftover[BUFFER_SIZE + 1])
 		}
 		temp[bytes_read] = '\0';
 		ft_lstadd_back(stash, temp, bytes_read);
-		if (!*stash)
-			return ;
 		free(temp);
+		if (!*stash)
+			return (ft_free_all(stash));
 	}
 }
 
@@ -118,7 +118,7 @@ char	*ft_fill_this_str(t_list **stash)
 
 	l = *stash;
 	line = (char *)malloc(((ft_size_lst(l) * BUFFER_SIZE) + 1) * sizeof(char));
-	if (!line || !l)
+	if (!line)
 		return (NULL);
 	i = 0;
 	while (l)
