@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:36 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/10 18:50:35 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/11 08:49:58 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdio.h>
 
 /*
-Inspect the content and sends back 1 if a \n is found
+Inspects the content and sends back 1 if a \n is found
 */
 
 int	ft_inspect_content(t_list *lst)
@@ -80,7 +80,7 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 /*
-Calculate size of list
+Calculates a list's size
 */
 
 int	ft_size_lst(t_list *lst)
@@ -98,7 +98,7 @@ int	ft_size_lst(t_list *lst)
 	return (i);
 }
 /*
-Frees all list
+Frees whole list
 */
 
 void	ft_free_all(t_list **lst)

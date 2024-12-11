@@ -6,7 +6,7 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:33 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/10 19:53:39 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/11 08:53:51 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 /*
 Get_next_line behaviour :
-	1. Go through my fd while and fill my chained list with nodes
+	1. Goes through my fd while and fills my chained list with nodes
 	 of buffer size while there is no /n or file ends
-2. Once my chained list is filled, I will :
-	* Calculate the length of my list
-	* Allocate a str (Result) that has the length of my list * BUFFER SIZE
-	* paste the results in the str
+2. Once my chained list is filled, it :
+	* Calculates the length of my list
+	* Allocates a str (Result) that has the length of my list * BUFFER SIZE
+	* pastes the results in the str
 3. Then, cleaning :
-	* stack in my static variable what is after my '\n' in my last node
-	* clean my whole list
+	* stacks in my static variable what is after my '\n' in my last node
+	* cleans my whole list
 */
 char	*get_next_line(int fd)
 {
@@ -52,10 +52,10 @@ char	*get_next_line(int fd)
 }
 
 /*
-If there is a leftover, I initialise my chained list with leftover
+If there is a leftover, it initialises chained list with leftover
 */
 
-void	ft_assign(char str[BUFFER_SIZE + 1], t_list **lst)
+void	ft_assign(char *str, t_list **lst)
 {
 	int	i;
 
@@ -78,7 +78,7 @@ void	ft_assign(char str[BUFFER_SIZE + 1], t_list **lst)
 Fills my list until there is a \n in BUFFER
 */
 
-void	ft_fill_my_stash(t_list **stash, int fd, char leftover[BUFFER_SIZE + 1])
+void	ft_fill_my_stash(t_list **stash, int fd, char *leftover)
 {
 	char	*temp;
 	int		bytes_read;
@@ -164,7 +164,5 @@ char	*ft_leftover(t_list **lst, char leftover[BUFFER_SIZE + 1])
 	if (last->content[i] != '\0')
 		while (last->content[i] != '\0')
 			leftover[j++] = last->content[i++];
-	while (j < BUFFER_SIZE)
-		leftover[j++] = '\0';
 	return (leftover);
 }
