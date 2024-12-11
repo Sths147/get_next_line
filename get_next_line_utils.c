@@ -6,12 +6,11 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:36 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/11 08:49:58 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/11 13:51:04 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <stdio.h>
 
 /*
 Inspects the content and sends back 1 if a \n is found

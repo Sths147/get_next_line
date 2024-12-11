@@ -6,11 +6,16 @@
 /*   By: sithomas <sithomas@student.42lyon.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 15:59:33 by sithomas          #+#    #+#             */
-/*   Updated: 2024/12/11 08:53:51 by sithomas         ###   ########.fr       */
+/*   Updated: 2024/12/11 14:00:27 by sithomas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+static char	*ft_leftover(t_list **lst, char leftover[BUFFER_SIZE + 1]);
+static char	*ft_fill_this_str(t_list **stash);
+static void	ft_fill_my_stash(t_list **stash, int fd, char *leftover);
+static void	ft_assign(char *str, t_list **lst);
 
 /*
 Get_next_line behaviour :
@@ -55,7 +60,7 @@ char	*get_next_line(int fd)
 If there is a leftover, it initialises chained list with leftover
 */
 
-void	ft_assign(char *str, t_list **lst)
+static void	ft_assign(char *str, t_list **lst)
 {
 	int	i;
 
@@ -78,7 +83,7 @@ void	ft_assign(char *str, t_list **lst)
 Fills my list until there is a \n in BUFFER
 */
 
-void	ft_fill_my_stash(t_list **stash, int fd, char *leftover)
+static void	ft_fill_my_stash(t_list **stash, int fd, char *leftover)
 {
 	char	*temp;
 	int		bytes_read;
@@ -109,7 +114,7 @@ void	ft_fill_my_stash(t_list **stash, int fd, char *leftover)
 Fills the result with the whole list until there is a \n
 */
 
-char	*ft_fill_this_str(t_list **stash)
+static char	*ft_fill_this_str(t_list **stash)
 {
 	int		i;
 	int		j;
@@ -142,7 +147,7 @@ char	*ft_fill_this_str(t_list **stash)
 Fills the static with what is left after the \n
 */
 
-char	*ft_leftover(t_list **lst, char leftover[BUFFER_SIZE + 1])
+static char	*ft_leftover(t_list **lst, char leftover[BUFFER_SIZE + 1])
 {
 	t_list	*last;
 	int		i;
